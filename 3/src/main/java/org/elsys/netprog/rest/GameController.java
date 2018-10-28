@@ -24,7 +24,7 @@ import javax.ws.rs.core.Response;
 @Path("game")
 public class GameController {
 	
-	private ArrayList<Game> games = new ArrayList<Game>();
+	private static ArrayList<Game> games = new ArrayList<Game>();
 	
 	@POST
 	@Path("/startGame")
@@ -34,7 +34,7 @@ public class GameController {
 		Game newGame = new Game();
 		games.add(newGame);
 		
-		return Response.created(new URI("/games")).entity(newGame.gameID).build();
+		return Response.created(new URI("/games")).entity(newGame.gameId).build();
 	}
 	
 	@PUT
@@ -72,7 +72,7 @@ public class GameController {
 		//-----------------------
 		
 		for(Game game : games){
-			if(gameId.equals(game.gameID)){
+			if(gameId.equals(game.gameId)){
 				GameResponse res = game.makeGuess(guess);
 				return Response.status(200).entity(res).build();
 			}

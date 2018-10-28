@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Game {
 
-	public String gameID;
+	public String gameId;
 	public int turnsCount;
 	public String secret;
 	public boolean success;
@@ -14,7 +14,7 @@ public class Game {
 	private String key;
 	
 	public Game() {
-		gameID = GameIdGenerator();
+		gameId = GameIdGenerator();
 		turnsCount = 0;
 		success = false;
 		secret = getSecret();
@@ -43,7 +43,7 @@ public class Game {
 			secret = key;
 		}
 		
-		return new GameResponse(gameID, tempCows, tempBulls, turnsCount, success);
+		return new GameResponse(gameId, tempCows, tempBulls, turnsCount, success);
 	}
 	
 	public String getSecret(){
